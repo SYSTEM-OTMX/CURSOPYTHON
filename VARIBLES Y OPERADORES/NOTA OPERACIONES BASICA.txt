@@ -1,0 +1,38 @@
+SUMA >> 2 + 2 = 4
+
+MULTIPLICACION >> 4 * 2 = 8
+
+DIVICION >> 3 / 2 = 1.5 
+
+    COCIENTE DIVICON (SACAR EL ENTERO) >> 3 // 2 = 1
+    RECIDUO DIVICION >> 3 % 2 = 1 
+
+POTENCIA >> 3 ** 2 = 9
+
+EXPRECION ARITMETICA  >> 50 - 5 * 6 = 20   
+    EXPRECION ARITMETICA 2 >> (50 - 5 * 6) / 4 = 5.0
+    EXPRECION ARITMETICA 2 >> (50 - 5 * 6) // 4 = 5
+
+OPERACION DECIMAL 2.5 + 2.5 = 5
+
+
+************************************
+VARIABLE VACIA 
+N = None
+
+
+************************************
+
+tax = 12.5 / 100
+
+price = 100.50
+
+price * tax = 12.5625
+
+price +_ = 113.0625
+
+round(_,2)
+113.06
+
+
+
