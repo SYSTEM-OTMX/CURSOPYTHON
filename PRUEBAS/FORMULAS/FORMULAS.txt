@@ -1,0 +1,15 @@
+
+*************************************************
+                RECTANGULO
+
+AREA = BASE * ALTURA
+PERIMETRO = (2*BASE) + (2*ALTURA)
+
+
+
+
+*************************************************
+                CIRCULO
+
+PERIMETRO = 2 * pi * radio
+AREA = pi * radio ^ 2

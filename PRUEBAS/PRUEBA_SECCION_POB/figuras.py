@@ -1,25 +1,31 @@
+from math import pi
+
 class Figura:
-    def __init__(self,nombre,base,altura) :
-        self.nombre = nombre
+    def __init__(self,base,altura,radio) :
         self.base = base
         self.altura = altura
+        self.radio = radio
+    
+class Rectangulo(Figura):
+    def __init__(self,base,altura) :
+        Figura.__init__(self,base,altura)
+        
+    def area(self):
+        area = self.base * self.altura
+        print("Area :",area)
+
+    def perimetro(self):
+        periimetro = (self.base*2) + (self.altura*2)
+        print("Perimetro :",periimetro)
+    
+class Circulo(Figura):
+    def __init__(self,radio):
+        Figura.__init__(self,radio)
 
     def area(self):
-        print("")
+        area = (pi*self.radio)^2
+        print("Area :",area)
+
     def perimetro(self):
-        print("")
-
-class Rectangulo(Figura):
-    def __init__(self,nombre,base,altura) :
-        super().__init__(nombre,base,altura)
-        super().area(base,altura)
-        super().perimetro()
-    
-    pass
-
-class Circulo(Figura):
-    def __init__(self,nombre,base,altura):
-        super().__init__(nombre,base,altura)
-        super().area(base,altura)
-        super().perimetro()
-    pass
+        perimetro = (2*pi*self.radio)
+        print('Perimetro :',perimetro)
