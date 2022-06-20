@@ -4,11 +4,17 @@ Hola mi querido estudiante, tengo un repo para ti, resuelve el siguiente problem
 
 Crear un módulo figuras.py, y dentro crea clases como Figura, Rectangulo, Circulo y la función probar_figura.
 
-Crear una clase Figura, con atributo nombre. Crear también el constructor de la clase y los métodos necesarios área y el perímetro con instrucción pass.
+Crear una clase Figura, con atributo nombre. 
 
-Crear otra clase Rectángulo que herede de la clase Figura, con atributos base y altura. Crear también el constructor de la clase y reescribe los métodos de la clase Figura para calcular el área y el perímetro.
+Crear también el constructor de la clase y los métodos necesarios área y el perímetro con instrucción pass.
 
-Crear otra clase Circulo que herede de la clase Figura, con atributo radio. Crear también el constructor de la clase y reescribe los métodos de la clase Figura para calcular el área y el perímetro.
+Crear otra clase Rectángulo que herede de la clase Figura, con atributos base y altura. 
+
+Crear también el constructor de la clase y reescribe los métodos de la clase Figura para calcular el área y el perímetro.
+
+Crear otra clase Circulo que herede de la clase Figura, con atributo radio. 
+
+Crear también el constructor de la clase y reescribe los métodos de la clase Figura para calcular el área y el perímetro.
 
 Crear una función probar_figura donde reciba un objeto para probar diferentes figuras como rectángulo o circulo. Y imprima el estado del objeto y como también el área y perímetro.
 

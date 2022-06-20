@@ -1,19 +1,25 @@
 class Figura:
-    def __init__(self,nombre) :
+    def __init__(self,nombre,base,altura) :
         self.nombre = nombre
+        self.base = base
+        self.altura = altura
 
     def area(self):
-        pass
+        print("")
     def perimetro(self):
-        pass
-
+        print("")
 
 class Rectangulo(Figura):
     def __init__(self,nombre,base,altura) :
-        super().__init__(nombre)
-
+        super().__init__(nombre,base,altura)
+        super().area(base,altura)
+        super().perimetro()
     
     pass
 
-class Ciruclo:
+class Circulo(Figura):
+    def __init__(self,nombre,base,altura):
+        super().__init__(nombre,base,altura)
+        super().area(base,altura)
+        super().perimetro()
     pass
