@@ -1,10 +1,9 @@
 from math import pi
 
 class Figura:
-    def __init__(self,base,altura,radio) :
-        self.base = base
-        self.altura = altura
-        self.radio = radio
+    def __init__(self) :
+        pass
+
     
 class Rectangulo(Figura):
     def __init__(self,base,altura) :
