@@ -28,7 +28,7 @@ def appProduct():
           response = jsonify({
                'name' : name,
                'price': price,
-               'quantity':quantity
+               'quantity': quantity
           })
           return redirect(url_for('home'))
      else:
