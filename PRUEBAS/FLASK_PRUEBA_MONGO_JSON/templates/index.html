@@ -28,10 +28,14 @@
                         <form action="/products" method="POST">
                             <label>Nombre</label>
                             <input type="text" class="form-control mb-3" name="name">
-                            <label>Precio</label>
-                            <input type="text" class="form-control mb-3" name="price">
-                            <label>Cantidad</label>
-                            <input type="text" class="form-control mb-3" name="quantity">
+                            <label>Latitud</label>
+                            <input type="number" step="any" class="form-control mb-3" name="lat">
+                            <label>Longitud</label>
+                            <input type="number" step="any" class="form-control mb-3" name="lng">
+                            <label>Direccion</label>
+                            <input type="" class="form-control mb-3" name="address">
+                            <label>Telefono</label>
+                            <input type="text" class="form-control mb-3" name="phone">
                             <button class="btn btn-primary" type="submit">Guardar</button>
                         </form>
                     </div>
@@ -51,16 +55,21 @@
                                 <div class="col">
                                     <li class="list-group-item mb-3">
                                         <form action="/edit/{{product.name}}" method="POST">
-                                            <input type="text" class="form-control" value="{{product.name}}"
+                                            <input type="text" class="form-control"  value="{{product.name}}"
                                                 name="name">
-                                            <small>CANTIDAD</small>
-                                            <input type="text" class="form-control" value="{{product.quantity}}"
-                                                name="quantity">
-                                            <small>PRECIO</small>
-                                            <input type="text" class="form-control" value="{{product.price}}"
-                                                name="price">
+                                            <small>LATITUD</small>
+                                            <input type="number" step="any" class="form-control" value="{{product.lat}}"
+                                                name="lat">
+                                            <small>LONGITUD</small>
+                                            <input type="number" step="any" class="form-control" value="{{product.lng}}"
+                                                name="lng">
+                                            <small>DIRECCION</small>
+                                            <input type="text" class="form-control" value="{{product.address}}"
+                                                name="address">
+                                            <small>TELEFONO</small>
+                                            <input type="text" class="form-control" value="{{product.phone}}"
+                                                name="phone">
                                             <button class="btn btn-primary btn-sm mt-3" type="submit">Editar</button>
-                                            
                                             <a href="{{url_for('delete', product_name=product.name)}}"
                                                 class="btn btn-danger btn-sm mt-3">Eliminar</a>
 
@@ -73,6 +82,9 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+            <div class="container">
+                <button href="/" class="btn btn-primary"><a href="/">ACTUALIZAR DATOS</a> </button>
             </div>
         </div>
     </div>

@@ -1,10 +1,11 @@
 
+import re
 from flask import Flask, redirect, render_template, render_template, request,Response, jsonify, url_for
 import database as dbase
 from products import Product
 import json
 app = Flask(__name__)
-
+archivojs = 'E:\PC\DOCUMENTOS\Repositorios-GIT\AMADEUS-PROYECT\FLASK\static\JS\data.json'
 db = dbase.dbConection()
 
 
@@ -12,18 +13,20 @@ db = dbase.dbConection()
 @app.route('/')
 def home():
     
-     products = db['products2']
+     products = db['locations']
      productsReceived = products.find()
      datajson = products.find()
      datos = []
      for dato in datajson:
           objeto = {}
-          objeto['nombre'] = dato['name']
-          objeto['precio'] = dato['price']
-          objeto['cantidad'] = dato['quantity']
+          objeto['name'] = dato['name']
+          objeto['lat'] = float(dato['lat'])
+          objeto['lng'] = float(dato['lng'])
+          objeto['address'] = dato['address']
+          objeto['phone'] = dato['phone']
           datos.append(objeto)
           form_dir = json.dumps(datos, indent=4)
-          data = open('productos.json','w')
+          data = open(archivojs,'w')
           data.write(form_dir)
           data.close()
           
@@ -33,19 +36,24 @@ def home():
 #Method Post
 @app.route('/products',methods = ['POST'])
 def appProduct():
-     products = db['products2']
+     products = db['locations']
      name = request.form['name']
-     price = request.form['price']
-     quantity = request.form['quantity']
+     lat = request.form['lat']
+     lng = request.form['lng']
+     address = request.form['address']
+     phone = request.form['phone']
+     
 
-     if name and price and quantity:
+     if name and lat and lng and address and phone:
 
-          product = Product(name,price, quantity)
+          product = Product(name,lat, lng, address, phone)
           products.insert_one(product.toDBCollection())
           response = jsonify({
                'name' : name,
-               'price': price,
-               'quantity': quantity
+               'lat': lat,
+               'lng': lng,
+               'address':address,
+               'phone': phone
           })
           return redirect(url_for('home'))
      else:
@@ -54,11 +62,11 @@ def appProduct():
 #Method Delete
 @app.route('/delete/<string:product_name>')
 def delete(product_name):
-     products = db['products']
+     products = db['locations']
      products.delete_one({'name': product_name})
      datos = []
      form_dir = json.dumps(datos, indent=4)
-     data = open('productos.json','w')
+     data = open(archivojs,'w')
      data.write(form_dir)
      data.close()
      return redirect(url_for('home'))
@@ -66,14 +74,21 @@ def delete(product_name):
 #Method Put
 @app.route('/edit/<string:product_name>', methods=['POST'])
 def edit(product_name):
-     products = db['products']
+     products = db['locations']
      name = request.form['name']
-     price = request.form['price']
-     quantity = request.form['quantity']
+     lat = request.form['lat']
+     lng = request.form['lng']
+     address = request.form['address']
+     phone = request.form['phone']
+     datos = []
+     
 
-     if name and price and quantity:
-          products.update_one({'name': product_name},{'$set' : {'name' : name, 'price': price, 'quantity' : quantity}})
+     if name and lat and lng and address and phone:
+          products.update_one({'name': product_name},{'$set' : {'name' : name, 'lat': lat, 'lng' : lng,'address':address, 'phone':phone}})
           response = jsonify({'message': 'Producto ' + product_name + 'actualizado correctamente'})
+          objeto = {}
+
+
           return redirect(url_for('home'))
      else:
           return notFound()
