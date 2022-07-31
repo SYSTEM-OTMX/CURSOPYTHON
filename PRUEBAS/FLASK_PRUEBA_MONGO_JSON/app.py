@@ -87,8 +87,6 @@ def edit(product_name):
           products.update_one({'name': product_name},{'$set' : {'name' : name, 'lat': lat, 'lng' : lng,'address':address, 'phone':phone}})
           response = jsonify({'message': 'Producto ' + product_name + 'actualizado correctamente'})
           objeto = {}
-
-
           return redirect(url_for('home'))
      else:
           return notFound()
